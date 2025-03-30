@@ -20,7 +20,7 @@ def no_vinnigrete(first_date, second_date):
     second_date_ord = second_date.toordinal()
     if second_date_ord < first_date_ord:
         first_date_ord, second_date_ord = second_date_ord, first_date_ord
-    random_date = random.randint(first_date_ord, second_date_ord)
+    random_date = random.randint(first_date_ord, second_date_ord + 1)
     random_date = datetime.datetime.fromordinal(random_date)
 
     if random_date.weekday() == 0:   # 0 is Monday
