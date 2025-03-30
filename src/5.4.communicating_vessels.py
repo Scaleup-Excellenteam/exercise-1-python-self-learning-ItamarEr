@@ -6,12 +6,11 @@ def interleave(*args):
     if not args:
         return None
     interleave_list = []    
-    index = 0
     iterables = [iter(arg) for arg in args]
     while iterables:
         for iterable in iterables:
             try:
-                interleave_list[index] = next(iterable)
+                interleave_list.append(next(iterable))
             except StopIteration:
                 iterables.remove(iterable)
     return interleave_list            
