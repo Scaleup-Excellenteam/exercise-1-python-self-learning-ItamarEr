@@ -1,6 +1,5 @@
 import datetime
 import random
-from dateutil.rrule import weekday
 
 
 def no_vinnigrette():
@@ -21,7 +20,7 @@ def no_vinnigrette():
     random_date = random.randint(first_date.toordinal(), second_date.toordinal())
     random_date = datetime.datetime.fromordinal(random_date)
 
-    if datetime.date.weekday(random_date) == 0:   # 0 is Monday
+    if random_date.weekday() == 0:   # 0 is Monday
         print("I dont have vinnigrette")
 
 
