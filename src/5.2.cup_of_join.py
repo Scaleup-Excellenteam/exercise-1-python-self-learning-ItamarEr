@@ -1,4 +1,4 @@
-def join(*args, sep="-") -> list:
+def cup_of_join(*args, sep="-") -> list:
     """
     :param args: one or more lists
     :param sep: separator character, default is "-"
@@ -18,4 +18,4 @@ def join(*args, sep="-") -> list:
 
 
 if __name__ == "__main__":
-    print(join([1, 2], [8], [9, 5, 6], sep='@'))
+    print(cup_of_join([1, 2], [8], [9, 5, 6], sep='@'))
