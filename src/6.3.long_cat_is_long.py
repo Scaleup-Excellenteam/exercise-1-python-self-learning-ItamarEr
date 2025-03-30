@@ -4,7 +4,7 @@ def long_cat_is_long(text: str) -> dict:
     :return: dictionary of words and their lengths.
     """
     text = ["".join([char.lower() for char in word if char.isalpha()]) for word in text.split()]
-    return {word: len(word) for word in text}
+    return {word: len(word) for word in text if word}
 
 
 if __name__ == '__main__':
