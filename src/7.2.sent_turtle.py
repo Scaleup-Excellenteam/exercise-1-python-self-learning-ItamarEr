@@ -75,6 +75,7 @@ class PostOffice:
         if username not in self.boxes:
             print('User not found')
             return []
+        search_term = search_term.lower()    
         user_box = self.boxes[username]
         return [message for message in user_box if search_term in message['body'].lower()
                 or search_term in message['title'].lower()]
