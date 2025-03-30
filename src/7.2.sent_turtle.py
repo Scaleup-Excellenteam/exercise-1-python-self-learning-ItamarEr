@@ -11,11 +11,12 @@ class PostOffice:
         self.message_id = 0
         self.boxes = {user: [] for user in usernames}
 
-    def send_message(self, sender, recipient, message_body, urgent=False):
+    def send_message(self, sender, recipient, title, message_body, urgent=False):
         """Send a message to a recipient.
 
         :param str sender: The message sender's username.
         :param str recipient: The message recipient's username.
+        :param str title: The message title.
         :param str message_body: The body of the message.
         :param urgent: The urgency of the message.
         :type urgent: bool, optional
@@ -27,9 +28,10 @@ class PostOffice:
         self.message_id = self.message_id + 1
         message_details = {
             'id': self.message_id,
+            'title': title,
             'body': message_body,
             'sender': sender,
-            'unread': True      # Message is unread by default
+            'read': False      # Message is unread by default
         }
         if urgent:
             user_box.insert(0, message_details)
@@ -37,7 +39,7 @@ class PostOffice:
             user_box.append(message_details)
         return self.message_id
 
-    def read_inbox(self,username:str, n=None):
+    def read_inbox(self,username:str, n:int):
         """Read messages from a user's inbox.
 
         :param str username: The username of the user whose inbox to read.
@@ -48,17 +50,15 @@ class PostOffice:
         if username not in self.boxes:
             print('User not found')
             return []
-        if not n:
-            n = len(self.boxes[username])
         if n <= 0:
             return []
 
         user_box = self.boxes[username]
-        unread_messages = [message for message in user_box if message['unread']]
+        unread_messages = [message for message in user_box if not message['read']]
 
         # Change the first n unread messages to read
         for message in unread_messages[:n]:
-            message['unread'] = False
+            message['read'] = True
 
         return unread_messages[:n]
 
@@ -74,5 +74,5 @@ class PostOffice:
             print('User not found')
             return []
         user_box = self.boxes[username]
-        return [message for message in user_box if search_term in message['body']]
-
+        return [message for message in user_box if search_term in message['body'].lower()
+                or search_term in message['title'].lower()]
