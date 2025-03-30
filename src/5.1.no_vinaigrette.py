@@ -6,7 +6,7 @@ from dateutil.rrule import weekday
 
 
 
-def no_vinaigrette():
+def no_vinnigerette():
     """
     This function will take two dates as input and will generate a random date between the two dates.
     It will check if the random date is a Monday. If it is, it will print "I don't have vinaigrette".
@@ -25,8 +25,8 @@ def no_vinaigrette():
     random_date = datetime.datetime.fromordinal(random_date)
 
     if datetime.date.weekday(random_date) == 0:   # 0 is Monday
-        print("I dont have vinaigrette")
+        print("I dont have vinnigerette")
 
 
 if __name__ == "__main__":
-    no_vinaigrette()
+    no_vinnigerette()
