@@ -29,7 +29,7 @@ class PostOffice:
             'id': self.message_id,
             'body': message_body,
             'sender': sender,
-            'read': False      # Message is unread by default
+            'unread': True      # Message is unread by default
         }
         if urgent:
             user_box.insert(0, message_details)
@@ -37,7 +37,7 @@ class PostOffice:
             user_box.append(message_details)
         return self.message_id
 
-    def read_inbox(self,username:str, n:int):
+    def read_inbox(self,username:str, n=None):
         """Read messages from a user's inbox.
 
         :param str username: The username of the user whose inbox to read.
@@ -48,15 +48,17 @@ class PostOffice:
         if username not in self.boxes:
             print('User not found')
             return []
+        if not n:
+            n = len(self.boxes[username])
         if n <= 0:
             return []
 
         user_box = self.boxes[username]
-        unread_messages = [message for message in user_box if not message['read']]
+        unread_messages = [message for message in user_box if message['unread']]
 
         # Change the first n unread messages to read
         for message in unread_messages[:n]:
-            message['read'] = True
+            message['unread'] = False
 
         return unread_messages[:n]
 
