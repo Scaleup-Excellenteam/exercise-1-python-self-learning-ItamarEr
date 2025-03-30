@@ -9,19 +9,22 @@ def no_vinnigrete(first_date, second_date):
     This function will generate a random date between the two dates.
     It will check if the random date is a Monday. If it is, it will print "Ain't gettin' no vinaigrette today :(".
     """
-
     try:
         first_date = datetime.datetime.strptime(first_date, "%Y-%m-%d")
         second_date = datetime.datetime.strptime(second_date, "%Y-%m-%d")
     except ValueError:
         print("Invalid date format")
         return
-    first_date_ord = first_date.toordinal()
-    second_date_ord = second_date.toordinal()
-    if second_date_ord < first_date_ord:
-        first_date_ord, second_date_ord = second_date_ord, first_date_ord
-    random_date = random.randint(first_date_ord, second_date_ord + 1)
-    random_date = datetime.datetime.fromordinal(random_date)
+
+    if second_date < first_date:
+        first_date, second_date = second_date, first_date
+
+    delta_days = (second_date - first_date).days
+    random_days = random.randint(0, delta_days)
+    random_date = first_date + datetime.timedelta(days=random_days)
+
+    if random_date.weekday() == 0:   # 0 is Monday
+        print("Ain't gettin' no vinaigrette today :(")
 
     if random_date.weekday() == 0:   # 0 is Monday
         print("Ain't gettin' no vinaigrette today :(")
