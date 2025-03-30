@@ -1,10 +1,9 @@
-
-
-def parsle_tongue(filename):
+def parsle_tongue():
     """
     This function reads a file called "logo.jpg" and extracts the hidden message from it.
     The message is sequence of 5 or more lowercase english letters in a row separated by !.
     """
+    filename = "logo.jpg"
     read_size = 1024
     message_min_size = 5
 
@@ -34,7 +33,6 @@ def parsle_tongue(filename):
 
 
 if __name__ == "__main__":
-    filename = "logo.jpg"
-    gen = parsle_tongue(filename)
+    gen = parsle_tongue()
     for word in gen:
         print(word)
