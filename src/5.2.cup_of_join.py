@@ -11,7 +11,7 @@ def cup_of_join(*args, sep=None) -> list:
     for i in range(len(args)):
         for item in args[i]:
             joined_list.append(item)
-        if i < len(args) and sep is not None:
+        if sep is not None:
             joined_list.append(sep)
 
     return joined_list
