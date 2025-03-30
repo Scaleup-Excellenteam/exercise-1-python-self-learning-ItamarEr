@@ -14,7 +14,7 @@ def piece_of_cake(prices:dict, optionals=None, **args) -> int:
 
     for item,amount in args.items():
         if item not in optionals and item in prices:
-            total_cost += prices[item] * (amount // 100)
+            total_cost += prices[item] * (amount / 100)
     return total_cost
 
 
