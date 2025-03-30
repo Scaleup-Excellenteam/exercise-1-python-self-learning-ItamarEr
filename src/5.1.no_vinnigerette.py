@@ -1,15 +1,12 @@
 import datetime
 import random
-
 from dateutil.rrule import weekday
 
 
-
-
-def no_vinaigrette():
+def no_vinnigerette():
     """
     This function will take two dates as input and will generate a random date between the two dates.
-    It will check if the random date is a Monday. If it is, it will print "I don't have vinaigrette".
+    It will check if the random date is a Monday. If it is, it will print "I don't have vinnigerette".
     """
     first_date = input("Enter the first date in the format YYYY-MM-DD: ")
     second_date = input("Enter the second date in the format YYYY-MM-DD: ")
@@ -29,4 +26,4 @@ def no_vinaigrette():
 
 
 if __name__ == "__main__":
-    no_vinaigrette()
+    no_vinnigerette()
