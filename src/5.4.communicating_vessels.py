@@ -1,5 +1,23 @@
+def interleave(*args):
+    """
+    :param args: 0 or more iterables to intertwine
+    :return: list of the iterables intertwined
+    """
+    if not args:
+        return None
+    interleave_list = []    
+    index = 0
+    iterables = [iter(arg) for arg in args]
+    while iterables:
+        for iterable in iterables:
+            try:
+                interleave_list[index] = next(iterable)
+            except StopIteration:
+                iterables.remove(iterable)
+    return interleave_list            
 
-def communicating_vessels(*args):
+
+def generator_interleave(*args):
     """
     :param args: 0 or more iterables to intertwine
     :yield: elements of the iterables intertwined
@@ -16,6 +34,9 @@ def communicating_vessels(*args):
 
 
 if __name__ == "__main__":
-    gen = communicating_vessels('abc', [1, 2, 3], ('!', '@', '#'))
+    list = interleave('abc', [1, 2, 3], ('!', '@', '#'))
+    for element in list:
+        print(element)
+    gen = generator_interleave('abc', [1, 2, 3], ('!', '@', '#'))
     for element in gen:
         print(element, end=' ')
