@@ -4,7 +4,7 @@ def interleave(*args):
     :return: list of the iterables intertwined
     """
     if not args:
-        return None
+        return []
     interleave_list = []    
     iterables = [iter(arg) for arg in args]
     while iterables:
@@ -22,7 +22,7 @@ def generator_interleave(*args):
     :yield: elements of the iterables intertwined
     """
     if not args:
-        return None
+        return []
     iterables = [iter(arg) for arg in args]
     while iterables:
         for iterable in iterables:
