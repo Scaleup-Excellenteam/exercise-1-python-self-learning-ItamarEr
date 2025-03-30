@@ -2,7 +2,7 @@ import datetime
 import random
 
 
-def no_vinnigrette():
+def no_vinnigrete():
     """
     This function will take two dates as input and will generate a random date between the two dates.
     It will check if the random date is a Monday. If it is, it will print "I don't have vinnigrette".
@@ -25,4 +25,4 @@ def no_vinnigrette():
 
 
 if __name__ == "__main__":
-    no_vinnigrette()
+    no_vinnigrete()
