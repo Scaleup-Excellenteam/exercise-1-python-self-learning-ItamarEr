@@ -2,13 +2,13 @@ import datetime
 import random
 
 
-def no_vinnigrete():
+def no_vinnigrete(first_date, second_date):
     """
-    This function will take two dates as input and will generate a random date between the two dates.
-    It will check if the random date is a Monday. If it is, it will print "I don't have vinnigrette".
+    :param first_date: string of the first date
+    :param second_date: string of the second date
+    This function will generate a random date between the two dates.
+    It will check if the random date is a Monday. If it is, it will print "Ain't gettin' no vinaigrette today :(".
     """
-    first_date = input("Enter the first date in the format YYYY-MM-DD: ")
-    second_date = input("Enter the second date in the format YYYY-MM-DD: ")
 
     try:
         first_date = datetime.datetime.strptime(first_date, "%Y-%m-%d")
@@ -16,13 +16,18 @@ def no_vinnigrete():
     except ValueError:
         print("Invalid date format")
         return
-
-    random_date = random.randint(first_date.toordinal(), second_date.toordinal())
+    first_date_ord = first_date.toordinal()
+    second_date_ord = second_date.toordinal()
+    if second_date_ord < first_date_ord:
+        first_date_ord, second_date_ord = second_date_ord, first_date_ord
+    random_date = random.randint(first_date_ord, second_date_ord)
     random_date = datetime.datetime.fromordinal(random_date)
 
     if random_date.weekday() == 0:   # 0 is Monday
-        print("I dont have vinnigrette")
+        print("Ain't gettin' no vinaigrette today :(")
 
 
 if __name__ == "__main__":
-    no_vinnigrete()
+    first_date = input("Enter the first date in the format YYYY-MM-DD: ")
+    second_date = input("Enter the second date in the format YYYY-MM-DD: ")
+    no_vinnigrete(first_date, second_date)
