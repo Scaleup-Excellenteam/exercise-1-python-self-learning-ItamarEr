@@ -26,9 +26,6 @@ def no_vinnigrete(first_date, second_date):
     if random_date.weekday() == 0:   # 0 is Monday
         print("Ain't gettin' no vinaigrette today :(")
 
-    if random_date.weekday() == 0:   # 0 is Monday
-        print("Ain't gettin' no vinaigrette today :(")
-
 
 if __name__ == "__main__":
     first_date = input("Enter the first date in the format YYYY-MM-DD: ")
