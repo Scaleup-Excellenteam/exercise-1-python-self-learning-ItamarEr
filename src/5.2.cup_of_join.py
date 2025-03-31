@@ -1,16 +1,24 @@
+"""
+This module provides a function to join multiple lists together, 
+optionally inserting a separator between them.
+"""
+
 def cup_of_join(*args, sep=None) -> list:
     """
-    :param args: one or more lists
-    :param sep: separator character, default is None
-    :return: the lists joined together with the separator
+    Joins multiple lists together, optionally inserting a separator between them.
+
+    :param args: One or more lists.
+    :param sep: Separator character (default is None).
+    :return: A single list containing all elements from the input lists, 
+             with the separator inserted between lists if provided.
     """
     if not args:
         return []
-    joined_list = []
 
-    for i in range(len(args)):
-        for item in args[i]:
-            joined_list.append(item)
+    joined_list = []
+    
+    for index, lst in enumerate(args):
+        joined_list.extend(lst)
         if sep is not None:
             joined_list.append(sep)
 
