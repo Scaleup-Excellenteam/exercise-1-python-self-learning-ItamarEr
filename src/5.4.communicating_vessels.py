@@ -13,7 +13,7 @@ def interleave(*args):
     """
     if not args:
         return []
-    interleave_list = []    
+    interleave_list = []
     iterables = [iter(arg) for arg in args]
     while iterables:
         for iterable in iterables:
