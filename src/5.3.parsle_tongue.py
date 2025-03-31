@@ -1,3 +1,10 @@
+"""
+This module provides a function to extract hidden messages from a binary file.
+The hidden message consists of sequences of at least 5 lowercase English letters,
+separated by the character '!'.
+"""
+
+
 def parsle_tongue():
     """
     This function reads a file called "logo.jpg" and extracts the hidden message from it.
