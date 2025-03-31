@@ -1,3 +1,9 @@
+"""
+This module defines a PostOffice class that allows users to send and receive messages.
+It supports sending urgent and regular messages, reading the inbox, and searching for messages by a keyword.
+"""
+
+
 class PostOffice:
     """A Post Office class. Allows users to message each other.
 
@@ -11,6 +17,7 @@ class PostOffice:
         self.message_id = 0
         self.boxes = {user: [] for user in usernames}
 
+    
     def send_message(self, sender, recipient, title, message_body, urgent=False):
         """Send a message to a recipient.
 
@@ -39,6 +46,7 @@ class PostOffice:
             user_box.append(message_details)
         return self.message_id
 
+    
     def read_inbox(self,username:str, n=None):
         """Read messages from a user's inbox.
 
@@ -57,13 +65,13 @@ class PostOffice:
 
         user_box = self.boxes[username]
         unread_messages = [message for message in user_box if message['unread']]
-
         # Change the first n unread messages to read
         for message in unread_messages[:n]:
             message['unread'] = False
 
         return unread_messages[:n]
 
+    
     def search_inbox(self,username:str, search_term:str) -> list:
         """Search messages in a user's inbox.
 
