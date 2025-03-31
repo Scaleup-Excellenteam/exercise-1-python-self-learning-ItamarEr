@@ -1,4 +1,9 @@
-
+"""
+This module extracts a hidden message from an image by its black pixels 
+and their corresponding columns. Each black pixel in the image represents a character 
+based on its row.
+The function 'remember_remember' processes the image and extracts the message.
+"""
 from PIL import Image
 
 
@@ -22,7 +27,7 @@ def remember_remember(image_path):
 
     except FileNotFoundError:
         print(f"File not found: {image_path}")
-
+        return ""
 
 if __name__ == "__main__":
     print(remember_remember("code.png"))
