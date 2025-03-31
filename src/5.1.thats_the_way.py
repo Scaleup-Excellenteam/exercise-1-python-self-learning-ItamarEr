@@ -1,3 +1,6 @@
+"""
+This module provides a function to list files in a directory that start with "deep".
+"""
 import os
 
 
@@ -12,7 +15,6 @@ def thats_the_way(path: str) -> list:
         return []               # path is not a directory
     all_files = os.listdir(path)
     return [file for file in all_files if file.startswith("deep")]
-
 
 
 if __name__ == "__main__":
