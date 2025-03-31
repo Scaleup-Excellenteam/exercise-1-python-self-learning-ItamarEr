@@ -1,7 +1,7 @@
 """
 This module provides a function to analyze text and return a dictionary 
 where words are mapped to their lengths.
-The function `long_cat_is_long` processes a given text by converting words 
+The function 'long_cat_is_long' processes a given text by converting words 
 to lowercase, removing non-alphabetic characters, and computing their lengths.
 """
 
@@ -19,5 +19,11 @@ def long_cat_is_long(text: str) -> dict:
 
 
 if __name__ == '__main__':
-    sample_text = "The quick brown fox, jumps over the lazy dog."
-    print(long_cat_is_long(sample_text))
+    SAMPLE_TEXT = """
+        You see, wire telegraph is a kind of a very, very long cat.
+        You pull his tail in New York and his head is meowing in Los Angeles.
+        Do you understand this?
+        And radio operates exactly the same way: you send signals here, they receive them there.
+        The only difference is that there is no cat.
+        """
+    print(long_cat_is_long(SAMPLE_TEXT))
