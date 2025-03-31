@@ -1,3 +1,7 @@
+"""
+This Module will generate a random date between the two dates
+and will check if the random date is a Monday.
+"""
 import datetime
 import random
 
@@ -6,8 +10,7 @@ def no_vinnigrete(first_date, second_date):
     """
     :param first_date: string of the first date
     :param second_date: string of the second date
-    This function will generate a random date between the two dates.
-    It will check if the random date is a Monday. If it is, it will print "Ain't gettin' no vinaigrette today :(".
+    
     """
     try:
         first_date = datetime.datetime.strptime(first_date, "%Y-%m-%d")
@@ -28,6 +31,6 @@ def no_vinnigrete(first_date, second_date):
 
 
 if __name__ == "__main__":
-    first_date = input("Enter the first date in the format YYYY-MM-DD: ")
-    second_date = input("Enter the second date in the format YYYY-MM-DD: ")
-    no_vinnigrete(first_date, second_date)
+    date1 = input("Enter the first date in the format YYYY-MM-DD: ")
+    date2 = input("Enter the second date in the format YYYY-MM-DD: ")
+    no_vinnigrete(date1, date2)
