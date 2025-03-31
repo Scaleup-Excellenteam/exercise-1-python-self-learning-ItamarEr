@@ -1,3 +1,8 @@
+"""
+This module provides a function to calculate the total cost of selected items 
+based on their prices and quantities while allowing optional exclusions.
+"""
+
 
 def piece_of_cake(prices:dict, optionals=None, **args) -> int:
     """
