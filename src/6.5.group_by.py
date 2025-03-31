@@ -29,9 +29,7 @@ def group_by(f, iterable: iter) -> dict:
         except ValueError:
             print(f"Error: Invalid value encountered for element {element}.")
             sys.exit(1)
-        except Exception as e:  # Catch unexpected exceptions
-            print(f"Unexpected error: {e}")
-            sys.exit(1)
+
     return dictionary
 
 
