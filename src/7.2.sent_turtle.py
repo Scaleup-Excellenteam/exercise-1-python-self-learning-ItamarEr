@@ -17,7 +17,6 @@ class PostOffice:
         self.message_id = 0
         self.boxes = {user: [] for user in usernames}
 
-    
     def send_message(self, sender, recipient, title, message_body, urgent=False):
         """Send a message to a recipient.
 
@@ -46,7 +45,6 @@ class PostOffice:
             user_box.append(message_details)
         return self.message_id
 
-    
     def read_inbox(self,username:str, n=None):
         """Read messages from a user's inbox.
 
@@ -71,7 +69,6 @@ class PostOffice:
 
         return unread_messages[:n]
 
-    
     def search_inbox(self,username:str, search_term:str) -> list:
         """Search messages in a user's inbox.
 
@@ -86,4 +83,4 @@ class PostOffice:
         search_term = search_term.lower()    
         user_box = self.boxes[username]
         return [message for message in user_box if search_term in message['body'].lower()
-                or search_term in message['title'].lower()]
+            or search_term in message['title'].lower()]
