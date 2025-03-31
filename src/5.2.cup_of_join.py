@@ -16,8 +16,7 @@ def cup_of_join(*args, sep=None) -> list:
         return []
 
     joined_list = []
-    
-    for index, lst in enumerate(args):
+    for _, lst in enumerate(args):
         joined_list.extend(lst)
         if sep is not None:
             joined_list.append(sep)
