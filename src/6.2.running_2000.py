@@ -20,11 +20,14 @@ def running_2000(f, *args, **kwargs) -> float:
     try:
         f(*args, **kwargs)
     except TypeError:
-        sys.exit("Error: Incorrect arguments passed to the function.")
+        print("Error: Incorrect arguments passed to the function.")
+        sys.exit(1)
     except ValueError:
-        sys.exit("Error: Function encountered a value-related issue.")
+        print("Error: Function encountered a value-related issue.")
+        sys.exit(1)
     except Exception as e:  # Catch unexpected exceptions
-        sys.exit(f"Unexpected error: {e}")
+        print(f"Unexpected error: {e}")
+        sys.exit(1)
 
     end = time.time()
     return end - start
