@@ -25,9 +25,6 @@ def running_2000(f, *args, **kwargs) -> float:
     except ValueError:
         print("Error: Function encountered a value-related issue.")
         sys.exit(1)
-    except Exception as e:  # Catch unexpected exceptions
-        print(f"Unexpected error: {e}")
-        sys.exit(1)
 
     end = time.time()
     return end - start
