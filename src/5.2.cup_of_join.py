@@ -12,9 +12,6 @@ def cup_of_join(*args, sep=None) -> list:
     :return: A single list containing all elements from the input lists, 
              with the separator inserted between lists if provided.
     """
-    if not args:
-        return []
-
     joined_list = []
     for _, lst in enumerate(args):
         joined_list.extend(lst)
