@@ -5,6 +5,7 @@ based on its row.
 The function 'remember_remember' processes the image and extracts the message.
 """
 from PIL import Image
+BLACK_PIXEL = 1
 
 
 def remember_remember(image_path):
@@ -13,21 +14,15 @@ def remember_remember(image_path):
     :param image_path: path to an image.
     :return: the hidden message extracted from the image.
     """
-    try:
-        with Image.open(image_path) as img:
-            width, height = img.size
-            message = []
-            for x in range(width):
-                for y in range(height):
-                    pixel_value = img.getpixel((x, y))
-                    if pixel_value == 1:      # black pixel
-                        message.append(chr(y))
-                        break
-            return "".join(message)
+    with Image.open(image_path) as img:
+        width, height = img.size
+        message = [
+            chr(next((y for y in range(height) if img.getpixel((x, y)) == BLACK_PIXEL), 0))
+            for x in range(width)
+        ]
 
-    except FileNotFoundError:
-        print(f"File not found: {image_path}")
-        return ""
+        return "".join(message)
+
 
 if __name__ == "__main__":
     print(remember_remember("code.png"))
