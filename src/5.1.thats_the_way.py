@@ -9,7 +9,7 @@ def thats_the_way(path: str) -> list:
     :param path: path to a directory
     :return: list of files in the directory that start with "deep".
     """
-        try:
+    try:
         all_files = os.listdir(path)
         return [file for file in all_files if file.startswith("deep")]
     except (FileNotFoundError, NotADirectoryError):
